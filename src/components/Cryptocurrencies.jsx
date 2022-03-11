@@ -32,9 +32,10 @@ const Cryptocurrencies = ({ simplified }) => {
           <Col
             xs={24}
             sm={12}
-            lg={6}
+            lg={8}
             className="crypto-card"
           >
+            <a href={`https://www.cryptocompare.com${currency?.CoinInfo?.Url}/USD`} target="_blank" rel="noreferrer">
             <Card
               title={`${currency?.CoinInfo?.FullName}`}
               extra={<img className="crypto-image" src={`https://www.cryptocompare.com${currency?.CoinInfo?.ImageUrl}`} />}
@@ -47,7 +48,10 @@ const Cryptocurrencies = ({ simplified }) => {
               <p>Marcket cap : {(currency?.DISPLAY?.USD?.MKTCAP)} </p>
               <p>Total Volume : {(currency?.DISPLAY?.USD?.VOLUME24HOURTO)} </p>
               <p>Launch Date : {(currency?.CoinInfo?.AssetLaunchDate)} </p>
+                 Description :<Card style={{marginTop:'10px'}}>{currency?.CoinInfo?.FullName} or {currency?.CoinInfo?.Name} this currency was created in {currency?.CoinInfo?.AssetLaunchDate}, with max supply of {currency?.CoinInfo?.MaxSupply} coin and if you don't know the max supply is the maximum amount of coins that will ever exist in the lifetime of the cryptocurrency.
+                The miners get {currency?.CoinInfo?.BlockReward} {currency?.DISPLAY?.USD.FROMSYMBOL} if they successfully mine a block of the {currency?.CoinInfo?.FullName} today we have {currency?.DISPLAY?.USD.SUPPLY} .</Card>
             </Card>
+            </a>
           </Col>
         ))}
       </Row>
